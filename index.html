@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component@3.2.5/dist/aframe-animation-component.min.js"></script>
+      </head>
+    <body>
+        <a-scene >
+            <a-assets>
+                <audio id="click-sound" src="click.mp3"></audio>
+                <a-asset-item id="human" src="scene.gltf"></a-asset-item> 
+            </a-assets>
+            <a-entity id='en'></a-entity>
+            <a-sky color='#408080'></a-sky>
+            <a-entity id="camera" camera 
+             wasd-controls look-controls movement-controls="controls: checkpoint" checkpoint-controls="mode: animate"
+            >
+                <a-entity id='cursor' position="0 0 -1" geometry="primitive: ring; radiusOuter: 0.02; radiusInner: 0.01" material="color: #ffffff; shader: flat; opacity: 0.5;" cursor="type:gaze;fuse:true;fuseTimeout:40;" raycaster="objects: .clickable" scale="">
+                <a-animation begin="click" easing="ease-in" attribute="scale" fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
+                <a-animation begin="fusing" easing="ease-in" attribute="scale" fill="backwards" from="1 1 1" to="0.2 0.2 0.2" dur="1500"></a-animation>
+                </a-entity>
+            </a-entity>
+            <a-entity id='sc'>
+            <a-entity id='model' position="0 0 -8" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#human" id='model'></a-entity>
+            <a-entity position="1 -3.5 -8">
+                    <a-circle id="c1" class='clickable'  material="side:double; src:left.png" radius="0.8"  position="-5.360 1.980 0" sound="on: click; src: #click-sound" color="#ffffff" opacity='0.5'></a-circle>
+                    <a-circle id="c3" class='clickable'  material="side:double; src:left.png" radius="0.8"  position="3.657 1.980 0" rotation='0 180 0'  color="#ffffff" opacity='0.5' sound="on: click; src: #click-sound"></a-circle>
+            </a-entity>
+            <a-entity id='lnabd' line__abdominals="color:#ffffff;end:-2 0 1.5" position="0.39539610338217734 0 -7.9"></a-entity>
+            <a-entity id='lnfrt1' line__frontalis1="color:#ffffff;end:2 0 0" position="0 2.45 -7.9"></a-entity>
+            <a-entity id='lnfrt2' line__frontalis2="color:#ffffff;end:2.41 -0.5 -0.01;start:2 0 0" position="-0.0030553300877604883 2.45 -7.9"></a-entity>
+            <a-entity id='txtabd' text__abdominal="value:ABDOMINALS;width:10;align:right;anchor:right" position="-1.6 0 -6.4"></a-entity>
+            <a-entity id='txtfrt' text__frontalis="value:FRONTALIS;width:10;align:left;anchor:left" position="2.4 1.79 -7.9"></a-entity>
+            <a-entity id='lnquad1' line__quadriceps1="color:#ffffff;end:-2 -3.2 0;start:-0.6 -1.6 0.3" position="0.1769716539161159 0 -7.9"></a-entity>
+            <a-entity id='lnquad2' line__quadriceps2="color:#ffffff;end:-2.51 -3.2 0;start:-2 -3.2 0" position="0.1769716539161159 0 -7.9"></a-entity>
+            <a-entity id='lnquad3' line__quadriceps3="color:#ffffff;end:-2 -3.2 0;start:0.3 -1.6 0.3" position="0.1769716539161159 0 -7.9"></a-entity>
+            <a-entity id='txtquad' text__quadriceps="value:QUADRICEPS;width:10;align:right;anchor:right" position="-2.34 -3.2 -7.9"></a-entity>
+            <a-entity id="lnbic" class='neg90' line__biceps="color:#ffffff;end:-1.13 -2.1 0.6;start:0.13 -2.1 0.6" position="0 2.45 -7.9"></a-entity>   
+            <a-entity id='txtbic' class='neg90' text__biceps="value:BICEPS;width:10;align:right;anchor:right" position="-1.13 0.35 -7.3"></a-entity>
+            <a-entity id="lngl" class='neg90' line__gluteusmaximus="color:#ffffff;end:0.55 -3.3 0.6;start:1.13 -3.3 0.6" position="0 2.45 -7.9"></a-entity>
+            <a-entity id='txtgl' class='neg90' text__gluteusmaximus="value:GLUTEUS MAXIMUS;width:6;align:left;anchor:left" position="1.13 -0.9 -7.3"></a-entity>
+            <a-entity id="lnlat" class="neg90" line__latissimusdorsi="color:#ffffff;end:0.4 -1.9 0.6;start:1.3 -1.9 0.6" position="0 2.45 -7.9"></a-entity>
+            <a-entity id='txtlat' class='neg90' text__latissimusdorsi="value:LATISSIMUS DORSI;width:6;align:left;anchor:left" position="1.3 0.5 -7.3"></a-entity>
+            <a-entity visible='false' id="lncm1" line__cm1="color:#ffffff;end:-2 -3.2 0;start:-0.6 -3 0.56" position="0.1769716539161159 0 -7.9" visible=""></a-entity>
+            <a-entity visible='false' id="lncm2" line__cm2="color:#ffffff;end:-2.51 -4.2 0;start:-2 -3.2 0" position="0.1769716539161159 0 -7.9" visible=""></a-entity>
+            <a-entity visible='false' id="lncm3" line__cm3="color:#ffffff;end:-2 -3.2 0;start:0.3 -3 0.56" position="0.1769716539161159 0 -7.9" visible=""></a-entity>
+            <a-entity id='txtcm' text__cm="value:CALF MUSCLES;width:10;align:right;anchor:right" position="-2.34 -4.4 -7.9"></a-entity>
+            <a-entity id="lntri" class='neg90' line__triceps="color:#ffffff;end:-1.13 -2.1 0.6;start:-0.563 -2.1 0.6" position="0 2.45 -7.9"></a-entity>   
+            <a-entity id='txttri' class='neg90' text__triceps="value:TRICEPS;width:10;align:right;anchor:right" position="-1.13 0.35 -7.3"></a-entity>
+            <a-entity id="lnta" line__ta="color:#ffffff;end:2 -5.7 0;start:-0.4 -5.7 0" position="0 2.45 -7.9"></a-entity>
+            <a-entity id='txtta' text__frontalis="value:TIBIALIS ANTERIOR;width:10;align:left;anchor:left" position="2.4 -3.2 -7.9"></a-entity>
+        </a-entity>
+        </a-scene>
+        <script>
+            var y=0;
+            var entityEl=document.querySelector('#en');
+            var camera = document.querySelector('#camera');
+            var c1 = document.querySelector('#c1');
+            var c3 = document.querySelector('#c3');    
+            var cursor = document.querySelector('#cursor');
+            var model = document.querySelector('#model');
+            var sc = document.querySelector('#sc');
+            var lnabd = document.querySelector('#lnabd');
+            var lnfrt1 = document.querySelector('#lnfrt1');
+            var lnfrt2 = document.querySelector('#lnfrt2');
+            var lnquad1 = document.querySelector('#lnquad1');
+            var lnquad2 = document.querySelector('#lnquad2');
+            var lnquad3 = document.querySelector('#lnquad3');
+            var txtabd = document.querySelector('#txtabd');
+            var txtfrt = document.querySelector('#txtfrt');
+            var txtquad = document.querySelector('#txtquad');
+            var lnbic = document.querySelector('#lnbic');
+            var lngl = document.querySelector('#lngl');
+            var txtbic = document.querySelector('#txtbic');
+            var txtgl = document.querySelector('#txtgl');
+            var lnlat = document.querySelector('#lnlat');
+            var txtlat = document.querySelector('#txtlat');
+            var lncm1 = document.querySelector('#lncm1');
+            var lncm2 = document.querySelector('#lncm2');
+            var lncm3 = document.querySelector('#lncm3');
+            var txtcm = document.querySelector('#txtcm');
+            var lntri = document.querySelector('#lntri');
+            var txttri = document.querySelector('#txttri');
+            var lnta = document.querySelector('#lnta');
+            var txtta = document.querySelector('#txtta');
+
+            initui();
+
+        c1.addEventListener('click',function(){
+            var entityEl = document.createElement('a-animation');
+            y-=90;
+            entityEl.setAttribute('attribute','rotation');
+            entityEl.setAttribute('dur',2000);
+            entityEl.setAttribute('easing','linear');
+            if(y >= 360 || y <= -360)y=0;
+            entityEl.setAttribute('to','0 '+ y +' 0');    
+            model.appendChild(entityEl);
+            initui();
+        });
+        
+        c3.addEventListener('click',function(){
+            var entityEl = document.createElement('a-animation');
+            y+=90;
+            entityEl.setAttribute('attribute','rotation');
+            entityEl.setAttribute('dur',2000);
+            entityEl.setAttribute('easing','linear');
+            if(y>360 || y<-360)y=0;
+            entityEl.setAttribute('to','0 '+ y +' 0');
+            model.appendChild(entityEl);
+            initui();
+        });
+        
+        function initui(){
+            if(y == 0 || y == 360){
+                lnabd.object3D.visible = true;
+                lnfrt1.object3D.visible = true;
+                lnfrt2.object3D.visible = true;
+                lnquad1.object3D.visible = true;
+                lnquad2.object3D.visible = true;
+                lnquad3.object3D.visible = true;
+                txtabd.object3D.visible = true;
+                txtfrt.object3D.visible = true;
+                txtquad.object3D.visible = true;
+                lnbic.object3D.visible = false;
+                lngl.object3D.visible = false;
+                txtbic.object3D.visible = false;
+                txtgl.object3D.visible = false;
+                lnlat.object3D.visible = false;
+                txtlat.object3D.visible = false;
+                txtcm.object3D.visible = false;
+                lncm1.object3D.visible = false;
+                lncm2.object3D.visible = false;
+                lncm3.object3D.visible = false;
+                lntri.object3D.visible = false;
+                txttri.object3D.visible = false;
+                lnta.object3D.visible = false;
+                txtta.object3D.visible = false;
+                }
+            if(y == -90 || y == 270){
+                lnabd.object3D.visible = false;
+                lnquad1.object3D.visible = false;
+                lnquad2.object3D.visible = false;
+                lnquad3.object3D.visible = false;
+                txtabd.object3D.visible = false;
+                txtquad.object3D.visible = false;
+                lnbic.object3D.visible = true;
+                lngl.object3D.visible = true;
+                txtbic.object3D.visible = true;
+                txtgl.object3D.visible = true;
+                lnlat.object3D.visible = false;
+                txtlat.object3D.visible = false;
+                lncm1.object3D.visible = false;
+                lncm2.object3D.visible = false;
+                lncm3.object3D.visible = false;
+                txtcm.object3D.visible = false;
+                lntri.object3D.visible = false;
+                txttri.object3D.visible = false;
+                lnta.object3D.visible = false;
+                txtta.object3D.visible = false;
+             }
+            if(y == 90 || y == -270){
+                lnabd.object3D.visible = false;
+                lnquad1.object3D.visible = false;
+                lnquad2.object3D.visible = false;
+                lnquad3.object3D.visible = false;
+                txtabd.object3D.visible = false;
+                txtquad.object3D.visible = false;
+                lnbic.object3D.visible = false;
+                lngl.object3D.visible = false;
+                txtbic.object3D.visible = false;
+                lnlat.object3D.visible = false;
+                txtlat.object3D.visible = false;
+                txtgl.object3D.visible = false;
+                lncm1.object3D.visible = false;
+                lncm2.object3D.visible = false;
+                lncm3.object3D.visible = false;
+                txtcm.object3D.visible = false;
+                lntri.object3D.visible = true;
+                txttri.object3D.visible = true;
+                lnta.object3D.visible = true;
+                txtta.object3D.visible = true;
+             }
+            if(y == 180 || y == -180){
+                lnabd.object3D.visible = false;
+                lnquad1.object3D.visible = false;
+                lnquad2.object3D.visible = false;
+                lnquad3.object3D.visible = false;
+                txtabd.object3D.visible = false;
+                txtquad.object3D.visible = false;
+                lnbic.object3D.visible = false;
+                lngl.object3D.visible = false;
+                txtbic.object3D.visible = false;
+                txtgl.object3D.visible = false;
+                lnlat.object3D.visible = true;
+                txtlat.object3D.visible = true;
+                lncm1.object3D.visible = true;
+                lncm2.object3D.visible = true;
+                lncm3.object3D.visible = true;
+                txtcm.object3D.visible = true;
+                lntri.object3D.visible = false;
+                txttri.object3D.visible = false;
+                lnta.object3D.visible = false;
+                txtta.object3D.visible = false;
+             }
+            
+        }
+        </script>        
+</body>
+</html>
