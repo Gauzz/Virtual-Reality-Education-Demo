@@ -1,2 +1,2 @@
 # Virtual-Reality-Education-Demo
-A demo of education usin virtual reality. 
+A demo of education using virtual reality. 
